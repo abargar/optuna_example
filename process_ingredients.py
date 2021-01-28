@@ -6,37 +6,10 @@ import json
 from time import time
 
 p = re.compile("[A-Za-z]+")
-crap_words = set(
-    [
-        "in",
-        "a",
-        "the",
-        "to",
-        "with",
-        "and",
-        "until",
-        "an",
-        "of",
-        "into",
-        "cup",
-        "pound",
-        "cups",
-        "pounds",
-        "advertisement",
-        "tablespoon",
-        "tablespoons",
-        "teaspoon",
-        "teaspoons",
-        "or",
-        "ground",
-        "ounces",
-        "for",
-        "grams",
-        "g",
-        "fresh",
-        "freshly",
-    ]
-)
+crap_words = set([])
+with open("useless_words.txt", 'r') as f:
+    for line in f:
+        crap_words.add(line.strip())
 
 
 def pull_from_file(fname):
