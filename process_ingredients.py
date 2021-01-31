@@ -7,7 +7,7 @@ from time import time
 
 p = re.compile("[A-Za-z]+")
 crap_words = set([])
-with open("useless_words.txt", 'r') as f:
+with open("useless_words.txt", "r") as f:
     for line in f:
         crap_words.add(line.strip())
 
@@ -43,7 +43,6 @@ for f in files:
 ingredients_df = pd.DataFrame(
     all_recipes, columns=["id", "title", "ingredients"]
 ).set_index("id")
-print(ingredients_df.head())
 ingredients_df.to_csv("all_ingredients.csv")
 
 # tokenize
@@ -51,5 +50,4 @@ ingredients_df["tokens"] = ingredients_df["title"].str.cat(
     ingredients_df["ingredients"], " "
 )
 ingredients_df["tokens"] = ingredients_df["tokens"].map(make_tokens)
-print(ingredients_df.head())
 ingredients_df.to_parquet("data/tokenized_ingredients.parquet")
