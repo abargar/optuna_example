@@ -7,6 +7,7 @@ import logging
 import csv
 from pathlib import Path
 
+
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 logger.addHandler(logging.FileHandler("optuna.log", mode="w"))
@@ -14,10 +15,7 @@ logger.addHandler(logging.FileHandler("optuna.log", mode="w"))
 token_df = pd.read_parquet("data/tokenized_ingredients.parquet")
 tokens_list = token_df.tokens.values
 corpora_dict = corpora.Dictionary(tokens_list)
-corpora_dict.save("data/tokens.dict")
 corpus = [corpora_dict.doc2bow(tokens) for tokens in tokens_list]
-corpora.MmCorpus.serialize("data/token_corpus.mm", corpus)
-dt_mat = [tf for tf in corpus]
 
 with open("model_results.csv", "w") as f:
     csvwriter = csv.DictWriter(
@@ -40,7 +38,7 @@ def compute_coherence(model, corpus, corpora_dict):
 def get_and_save_top_words(model, out_file):
     top_words_per_topic = []
     for t in range(model.num_topics):
-        top_words_per_topic.extend([(t,) + x for x in model.show_topic(t, topn=15)])
+        top_words_per_topic.extend([(t,) + x for x in model.show_topic(t, topn=50)])
     pd.DataFrame(top_words_per_topic, columns=["topic", "word", "p"]).to_parquet(
         path=out_file, index=False
     )
@@ -53,7 +51,7 @@ def objective(trial):
     ideal_score = 0.8
     model = gensim.models.LdaMulticore(
         workers=7,
-        corpus=dt_mat,
+        corpus=corpus,
         id2word=corpora_dict,
         num_topics=num_topics,
         random_state=100,
@@ -62,11 +60,8 @@ def objective(trial):
         eta=eta,
         per_word_topics=True,
     )
-    print(f"Check the corpus: {len(corpus)}")
-    print(f"Check the dict: {len(corpora_dict)}")
-    print(f"Check the model: {str(model)}")
     coherence_score = compute_coherence(model, tokens_list, corpora_dict)
-    print(f"Coherence score: {coherence_score}")
+    print(f"Trial {trial.number} coherence score: {round(coherence_score,3)}")
     with open("model_results.csv", "a") as f:
         csvwriter = csv.DictWriter(
             f, fieldnames=["trialno", "coherence", "ntopics", "alpha", "eta"]
@@ -80,7 +75,7 @@ def objective(trial):
                 "eta": eta,
             }
         )
-    if coherence_score >= 0.45:
+    if coherence_score >= 0.5:
         model_path = Path(f"models/trial_{trial.number}")
         model_path.mkdir(parents=True, exist_ok=True)
         model.save(str(model_path / f"{trial.number}_lda"))
