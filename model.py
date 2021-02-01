@@ -51,12 +51,11 @@ def write_model_results(trial, model, coherence_score):
                 "eta": params["eta"],
             }
         )
-    if coherence_score >= 0.5:
-        model_path = Path(f"models/trial_{trialnum}")
-        model_path.mkdir(parents=True, exist_ok=True)
-        model.save(str(model_path / f"{trialnum}_lda"))
-        top_words_filename = model_path / f"trial{trialnum}_top_words.parquet"
-        get_and_save_top_words(model, top_words_filename)
+    model_path = Path(f"models/trial_{trialnum}")
+    model_path.mkdir(parents=True, exist_ok=True)
+    model.save(str(model_path / f"{trialnum}_lda"))
+    top_words_filename = model_path / f"trial{trialnum}_top_words.parquet"
+    get_and_save_top_words(model, top_words_filename)
 
 
 def get_and_save_top_words(model, out_file):

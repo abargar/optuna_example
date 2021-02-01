@@ -50,4 +50,5 @@ ingredients_df["tokens"] = ingredients_df["title"].str.cat(
     ingredients_df["ingredients"], " "
 )
 ingredients_df["tokens"] = ingredients_df["tokens"].map(make_tokens)
+print(ingredients_df.head())
 ingredients_df.to_parquet("data/tokenized_ingredients.parquet")
