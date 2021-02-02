@@ -15,11 +15,10 @@ for bow, recipe in zip(corpus, recipe_tokens.itertuples()):
 recipe_topic_df = pd.DataFrame.from_records(recipe_topic_distributions)
 recipe_topic_df = recipe_topic_df.fillna(0)
 recipe_topic_df = recipe_topic_df[["recipe", *range(10)]]
-print(recipe_topic_df)
 recipe_topic_df.to_csv("recipe_topic_df.csv")
 
-with open("top_recipes.txt", 'w') as out:
+with open("topical_recipes.txt", 'w') as out:
     for topic in range(10):
-        print(topic, file=out)
-        print(df[["recipe", str(topic)]].sort_values(str(topic), ascending=False).head(), file=out)
-        print('',file=out)
+        print(f"Topic {topic}", file=out)
+        print(recipe_topic_df[["recipe", topic]].sort_values(topic, ascending=False).head(n=5), file=out)
+        print(file=out)

@@ -1,0 +1,80 @@
+Topic 0
+                                                  recipe         0
+7246   Marinated Lamb Shoulder Chops with Tzatziki, A...  0.945500
+49092  Red Wine-Rosemary Grilled Flank Steak with Gri...  0.940364
+78681                Sea Bass with Marinated Vegetables   0.939195
+15815  Chianti Braised Osso Buco with Roasted Fennel ...  0.938238
+69292  Stuffed Lamb Breast With Lemon, Ricotta, And O...  0.935178
+
+Topic 1
+                                        recipe         1
+25212                                    Scali  0.892979
+40047   Mike's Deli Famous Eggplant Parmigiana  0.885066
+14463           Gorgonzola and Walnut Fougasse  0.882042
+46966                Amy's Crusty Italian Loaf  0.878918
+108359               Honey Whole Wheat Challah  0.877654
+
+Topic 2
+                                 recipe         2
+53844             Dos Toros Quesadillas  0.938296
+41585                        Fish Tacos  0.922881
+11078                    Chorizo Burger  0.919996
+41256  Chorizo Burgers and Jose's Salsa  0.911594
+50513                 Baja's Fish Tacos  0.904558
+
+Topic 3
+                                recipe         3
+94021   Hearty Vegan Slow-Cooker Chili  0.945599
+89202                     Quinoa Chili  0.917880
+15443            Vegetable Lentil Stew  0.917537
+91678             Rainbow Veggie Chili  0.917473
+112766        Bobbie's Spaghetti Sauce  0.916861
+
+Topic 4
+                                                   recipe         4
+104921                                3 Cheese Enchiladas  0.884557
+105291                                 Potato Casserole I  0.884145
+102294                           Ham and Potato Casserole  0.879356
+123737         Breakfast Enchiladas from Jones Dairy Farm  0.879017
+104774  Baked Mac and Cheese with Sour Cream and Cotta...  0.877983
+
+Topic 5
+                                 recipe         5
+55917              Chocolate Layer Cake  0.959548
+34047              Chocolate Layer Cake  0.959534
+599    Chocolate Chip Cookies-Four Ways  0.957944
+6373         Black-and-White Mocha Cake  0.954617
+1127                Neapolitan Cupcakes  0.948886
+
+Topic 6
+                                                   recipe         6
+1526                  Almost-Famous Chicken Lettuce Wraps  0.924254
+111047              Chicken Chow Mein (West Indian Style)  0.917881
+91175   Sweet and Spicy Pork and Napa Cabbage Stir-Fry...  0.916717
+57229   Hong Kong Style Noodles with Chicken and Veget...  0.915920
+5459                                               My Dal  0.914343
+
+Topic 7
+                                        recipe         7
+14986                Summer on the Porch Punch  0.892048
+16532        Peach, Raspberry and Lime Sangria  0.889129
+79996                    Summer Fruit Terrine   0.879348
+43726  Fireworks Red, White and Blue Daiquiris  0.878577
+1656                   King Kamehameha Mai Tai  0.876808
+
+Topic 8
+                                   recipe         8
+76698              Apple and Raisin Slaw   0.887258
+82919              Sushi-Roll Rice Salad   0.878640
+66165                          Tuna Maki   0.876610
+29092  Creamy Crispy Coleslaw with Pecans  0.872732
+82459         White Balsamic-Jicama Slaw   0.870739
+
+Topic 9
+                                              recipe         9
+12805  Fettuccini with Rabbit and Currant-Port Glaze  0.876434
+53095            Roast Turkey with Chestnut Stuffing  0.861243
+12868                                Spitfire Shrimp  0.851668
+64975                       Seafood-Stuffed Cabbage   0.850896
+11401                                 Shrimp Ceviche  0.847635
+
