@@ -16,6 +16,7 @@ token_df = pd.read_parquet("data/tokenized_ingredients.parquet")
 tokens_list = token_df.tokens.values
 corpora_dict = corpora.Dictionary(tokens_list)
 corpus = [corpora_dict.doc2bow(tokens) for tokens in tokens_list]
+corpora.MmCorpus.serialize("data/token_corpus.mm", corpus)
 
 with open("model_results.csv", "w") as f:
     csvwriter = csv.DictWriter(
